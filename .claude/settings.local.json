@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install)",
+      "Bash(npx next build)",
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "WebFetch(domain:www.pexels.com)",
+      "WebFetch(domain:api.pexels.com)",
+      "WebFetch(domain:mixkit.co)",
+      "Bash(npm create video@latest remotion-demo)",
+      "Bash(netstat -ano)",
+      "Bash(taskkill /PID 24172 /F)",
+      "Bash(cmd /c \"taskkill /PID 24172 /F\")",
+      "Bash(cmd /c \"taskkill /F /PID 24172\")",
+      "Bash(powershell -Command \"Stop-Process -Id 24172 -Force\")",
+      "WebFetch(domain:github.com)",
+      "Bash(\"C:/Program Files/Epic Games/UE_5.5/Engine/Build/BatchFiles/Build.bat\" MCPGameProjectEditor Win64 Development -Project=\"C:/unreal-mcp2/unreal-mcp-main/MCPGameProject/MCPGameProject.uproject\" -WaitMutex -FromMsBuild)",
+      "Bash(python3 -c \":*)",
+      "Bash(python -c \":*)",
+      "Bash(\"C:/Program Files/Epic Games/UE_5.5/Engine/Build/BatchFiles/Build.bat\" NewProjectEditor Win64 Development -Project=\"C:/Users/imggp/Desktop/NewProject/NewProject.uproject\" -WaitMutex -FromMsBuild)",
+      "WebFetch(domain:jp.nothing.tech)",
+      "Bash(git init)",
+      "Bash(git add -A)",
+      "Bash(git commit:*)"
+    ]
+  }
+}
