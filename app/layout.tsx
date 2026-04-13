@@ -26,26 +26,31 @@ const spaceMono = Space_Mono({
 });
 
 /* ─── SEO Metadata ─────────────────────────────────────────── */
-const SITE_URL = "https://lumiere-studio.jp";
+const SITE_URL = "https://claude0227-r8l04wkx3-sss2t18-gmailcoms-projects.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default:  "S.SATOU | 建築ビジュアライゼーション & アニメーション映像制作",
+    default:  "S.SATOU | クリエイティブデベロッパー — 3DCG・Web開発・映像制作",
     template: "%s | S.SATOU",
   },
   description:
-    "建築パース、ウォークスルー映像、3DCGアニメーション、モーショングラフィックスの映像制作スタジオ。設計段階の空間をフォトリアルに可視化します。",
+    "S.SATOUのポートフォリオ。3DCGアニメーション、インタラクティブWeb開発、モーショングラフィックスを手がけるクリエイティブデベロッパー。Next.js・Three.js・Blenderを活用し、企画から実装まで一貫して対応します。",
 
   keywords: [
-    "建築ビジュアライゼーション",
-    "建築パース",
-    "ウォークスルー映像",
+    "クリエイティブデベロッパー",
+    "フリーランス",
     "3DCGアニメーション",
+    "Web開発",
+    "Next.js",
+    "Three.js",
+    "Blender",
     "モーショングラフィックス",
+    "インタラクティブWeb",
+    "フロントエンドエンジニア",
     "映像制作",
-    "映像制作会社",
+    "ポートフォリオ",
     "S.SATOU",
   ],
 
@@ -60,22 +65,22 @@ export const metadata: Metadata = {
     locale:      "ja_JP",
     url:         SITE_URL,
     siteName:    "S.SATOU",
-    title:       "S.SATOU | 建築ビジュアライゼーション & アニメーション映像制作",
-    description: "建築パース、ウォークスルー映像、3DCGアニメーション、モーショングラフィックスの映像制作スタジオ。設計段階の空間をフォトリアルに可視化します。",
+    title:       "S.SATOU | クリエイティブデベロッパー — 3DCG・Web開発・映像制作",
+    description: "3DCGアニメーション、インタラクティブWeb開発、モーショングラフィックスを手がけるクリエイティブデベロッパー。企画から実装まで一貫して対応。",
     images: [
       {
         url:    "/og-image.jpg",
         width:  1200,
         height: 630,
-        alt:    "S.SATOU - 建築ビジュアライゼーション & アニメーション映像制作",
+        alt:    "S.SATOU - クリエイティブデベロッパー ポートフォリオ",
       },
     ],
   },
 
   twitter: {
     card:        "summary_large_image",
-    title:       "S.SATOU | 建築ビジュアライゼーション & アニメーション映像制作",
-    description: "建築パース、ウォークスルー映像、3DCGアニメーション、モーショングラフィックスの映像制作スタジオ。設計段階の空間をフォトリアルに可視化します。",
+    title:       "S.SATOU | クリエイティブデベロッパー — 3DCG・Web開発・映像制作",
+    description: "3DCGアニメーション、インタラクティブWeb開発、モーショングラフィックスを手がけるクリエイティブデベロッパー。企画から実装まで一貫して対応。",
     images:      ["/og-image.jpg"],
   },
 
@@ -100,48 +105,25 @@ export const viewport: Viewport = {
 };
 
 /* ─── JSON-LD Structured Data ──────────────────────────────── */
-const jsonLdOrganization = {
+const jsonLdPerson = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "Person",
   name: "S.SATOU",
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.png`,
-  email: "hello@lumiere.studio",
-  sameAs: [
-    "https://instagram.com/lumiere.studio",
-    "https://youtube.com/@lumierestudio",
-    "https://vimeo.com/lumierestudio",
+  jobTitle: "クリエイティブデベロッパー",
+  description: "3DCG・Web開発・映像制作を手がけるクリエイティブデベロッパー",
+  knowsAbout: [
+    "3DCG Animation",
+    "Web Development",
+    "Next.js",
+    "Three.js",
+    "Blender",
+    "Motion Graphics",
+    "Interactive Web",
   ],
-  contactPoint: {
-    "@type": "ContactPoint",
-    email: "hello@lumiere.studio",
-    contactType: "customer service",
-    availableLanguage: ["Japanese", "English"],
-  },
-};
-
-const jsonLdLocalBusiness = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "S.SATOU",
-  image: `${SITE_URL}/og-image.jpg`,
-  url: SITE_URL,
-  email: "hello@lumiere.studio",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "神宮前3-1-1",
-    addressLocality: "渋谷区",
-    addressRegion: "東京都",
-    postalCode: "150-0001",
-    addressCountry: "JP",
-  },
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    opens: "10:00",
-    closes: "19:00",
-  },
-  priceRange: "¥¥¥",
+  sameAs: [
+    "https://github.com/git-s-satou",
+  ],
 };
 
 const jsonLdServices = {
@@ -151,23 +133,23 @@ const jsonLdServices = {
     {
       "@type": "Service",
       position: 1,
-      name: "建築ビジュアライゼーション",
-      description: "建築パース・ウォークスルー映像。設計段階の空間をフォトリアルに可視化します。",
-      provider: { "@type": "Organization", name: "S.SATOU" },
+      name: "3DCGアニメーション制作",
+      description: "Blenderを使った3DCGアニメーション・建築ビジュアライゼーション。空間やプロダクトをリアルに可視化します。",
+      provider: { "@type": "Person", name: "S.SATOU" },
     },
     {
       "@type": "Service",
       position: 2,
-      name: "アニメーション映像制作",
-      description: "モーショングラフィックス・3DCGアニメーション。ブランドの世界観を映像で表現します。",
-      provider: { "@type": "Organization", name: "S.SATOU" },
+      name: "Web開発・インタラクティブサイト制作",
+      description: "Next.js・Three.js・React等を活用したモダンなWebサイト・Webアプリケーションの設計・開発。",
+      provider: { "@type": "Person", name: "S.SATOU" },
     },
     {
       "@type": "Service",
       position: 3,
-      name: "映像コンサルティング",
-      description: "映像戦略の立案から制作ディレクションまで、クライアントのビジョンを実現するためのコンサルティング。",
-      provider: { "@type": "Organization", name: "S.SATOU" },
+      name: "モーショングラフィックス",
+      description: "ブランドの世界観を伝える2Dモーショングラフィックス・映像制作。",
+      provider: { "@type": "Person", name: "S.SATOU" },
     },
   ],
 };
@@ -235,13 +217,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLdOrganization),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLdLocalBusiness),
+            __html: JSON.stringify(jsonLdPerson),
           }}
         />
         <script

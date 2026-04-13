@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lumiere-studio.jp/sitemap.xml
+Sitemap: https://claude0227-r8l04wkx3-sss2t18-gmailcoms-projects.vercel.app/sitemap.xml

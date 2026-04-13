@@ -9,24 +9,24 @@ gsap.registerPlugin(ScrollTrigger);
 const PRINCIPLES = [
   {
     number: "01",
-    title: "Cinematic Quality.",
-    description: "すべてのフレームに、映画品質のクオリティを。",
+    title: "Craft & Quality.",
+    description: "細部にこだわり、すべてのピクセル・フレームに妥協しない。",
     quote:
-      "\u201CArchitecture is frozen music.\u201D \u2014 Johann Wolfgang von Goethe",
+      "\u201CDetails are not the details. They make the design.\u201D \u2014 Charles Eames",
   },
   {
     number: "02",
-    title: "Technical Mastery.",
-    description: "最先端のCG技術で、不可能を可能にする。",
+    title: "Tech × Design.",
+    description: "最新技術とデザインの融合で、体験の価値を最大化する。",
     quote:
       "\u201CTechnology is best when it brings people together.\u201D \u2014 Matt Mullenweg",
   },
   {
     number: "03",
-    title: "Client Partnership.",
-    description: "クライアントのビジョンを、私たちのビジョンとして。",
+    title: "End-to-End.",
+    description: "企画・デザイン・実装を一人で完結。スピードと一貫性を両立。",
     quote:
-      "\u201CGreat things in business are never done by one person.\u201D \u2014 Steve Jobs",
+      "\u201CSimplicity is the ultimate sophistication.\u201D \u2014 Leonardo da Vinci",
   },
 ];
 

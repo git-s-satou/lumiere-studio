@@ -146,7 +146,7 @@ export default function HeroSection({ isLoaded }: HeroSectionProps) {
               borderColor: "rgba(200,164,92,0.35)",
             }}
           >
-            Architectural Visualization &amp; Animation
+            Creative Developer — 3DCG / Web / Motion
           </span>
         </div>
 
@@ -155,7 +155,7 @@ export default function HeroSection({ isLoaded }: HeroSectionProps) {
           className="font-display text-display-xl mb-6"
           style={{ opacity: 0, color: "#f0ede6", lineHeight: 1.2 }}
         >
-          映像で、空間に命を吹き込む。
+          つくる力で、未来を形にする。
         </h1>
 
         <p
@@ -163,7 +163,7 @@ export default function HeroSection({ isLoaded }: HeroSectionProps) {
           className="font-mono text-sm md:text-base tracking-wider max-w-2xl mx-auto"
           style={{ opacity: 0, color: "rgba(240,237,230,0.85)" }}
         >
-          We breathe life into architecture through visual storytelling.
+          3DCG, Web Development &amp; Motion Graphics — from concept to delivery.
         </p>
       </div>
 

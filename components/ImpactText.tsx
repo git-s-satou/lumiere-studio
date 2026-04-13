@@ -80,7 +80,7 @@ export default function ImpactText() {
             lineHeight: 1.05,
           }}
         >
-          想像を、
+          アイデアを、
         </div>
         <div className="h-4 md:h-8" />
         <div
@@ -94,7 +94,7 @@ export default function ImpactText() {
             lineHeight: 1.05,
           }}
         >
-          現実にする。
+          カタチにする。
         </div>
       </div>
       <div className="w-full mt-auto">

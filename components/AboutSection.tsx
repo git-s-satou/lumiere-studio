@@ -9,13 +9,13 @@ gsap.registerPlugin(ScrollTrigger);
 const COLUMNS = [
   {
     number: "01",
-    title: "What we create.",
-    body: "建築ビジュアライゼーション、モーショングラフィックス、3DCGアニメーション。設計段階の空間をリアルに可視化し、プロモーション映像で心を動かします。",
+    title: "What I create.",
+    body: "3DCGアニメーション、インタラクティブWebサイト、モーショングラフィックス。テクノロジーとデザインの掛け合わせで、体験を生み出します。",
   },
   {
     number: "02",
-    title: "How we create.",
-    body: "クライアントとの密な対話から始まり、コンセプト策定 → 制作 → フィードバック → 納品まで。技術力と美的センスの両輪で、期待を超えるアウトプットを。",
+    title: "How I create.",
+    body: "ヒアリングからコンセプト策定、デザイン、実装、納品まで一貫対応。Blender・Next.js・Three.js・GSAPなどのツールを駆使し、高品質なアウトプットを実現します。",
   },
 ];
 
@@ -81,11 +81,11 @@ export default function AboutSection() {
         {/* Main description */}
         <div ref={setRef(1)} style={{ opacity: 0 }} className="max-w-3xl mb-20 md:mb-32">
           <p className="text-body text-text-primary leading-relaxed">
-            私たちは、建築とアニメーションの境界を溶かす映像スタジオです。
+            3DCG・Web開発・映像制作を横断するクリエイティブデベロッパーです。
             <br className="hidden md:block" />
-            設計者のビジョンをフォトリアルな映像で具現化し、
+            Blenderによる3DCGアニメーション、Next.js・Three.jsを活用した
             <br className="hidden md:block" />
-            ブランドの世界観を動きのある物語に変換します。
+            インタラクティブWeb開発、モーショングラフィックスまで一貫して対応します。
           </p>
         </div>
 
