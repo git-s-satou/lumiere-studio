@@ -26,7 +26,7 @@ const spaceMono = Space_Mono({
 });
 
 /* ─── SEO Metadata ─────────────────────────────────────────── */
-const SITE_URL = "https://claude0227-r8l04wkx3-sss2t18-gmailcoms-projects.vercel.app";
+const SITE_URL = "https://ssatou.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
