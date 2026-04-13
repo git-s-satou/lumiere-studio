@@ -32,8 +32,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default:  "LUMIERE STUDIO | 建築ビジュアライゼーション & アニメーション映像制作",
-    template: "%s | LUMIERE STUDIO",
+    default:  "S.SATOU | 建築ビジュアライゼーション & アニメーション映像制作",
+    template: "%s | S.SATOU",
   },
   description:
     "建築パース、ウォークスルー映像、3DCGアニメーション、モーショングラフィックスの映像制作スタジオ。設計段階の空間をフォトリアルに可視化します。",
@@ -46,10 +46,10 @@ export const metadata: Metadata = {
     "モーショングラフィックス",
     "映像制作",
     "映像制作会社",
-    "LUMIERE STUDIO",
+    "S.SATOU",
   ],
 
-  authors: [{ name: "LUMIERE STUDIO" }],
+  authors: [{ name: "S.SATOU" }],
 
   alternates: {
     canonical: SITE_URL,
@@ -59,22 +59,22 @@ export const metadata: Metadata = {
     type:        "website",
     locale:      "ja_JP",
     url:         SITE_URL,
-    siteName:    "LUMIERE STUDIO",
-    title:       "LUMIERE STUDIO | 建築ビジュアライゼーション & アニメーション映像制作",
+    siteName:    "S.SATOU",
+    title:       "S.SATOU | 建築ビジュアライゼーション & アニメーション映像制作",
     description: "建築パース、ウォークスルー映像、3DCGアニメーション、モーショングラフィックスの映像制作スタジオ。設計段階の空間をフォトリアルに可視化します。",
     images: [
       {
         url:    "/og-image.jpg",
         width:  1200,
         height: 630,
-        alt:    "LUMIERE STUDIO - 建築ビジュアライゼーション & アニメーション映像制作",
+        alt:    "S.SATOU - 建築ビジュアライゼーション & アニメーション映像制作",
       },
     ],
   },
 
   twitter: {
     card:        "summary_large_image",
-    title:       "LUMIERE STUDIO | 建築ビジュアライゼーション & アニメーション映像制作",
+    title:       "S.SATOU | 建築ビジュアライゼーション & アニメーション映像制作",
     description: "建築パース、ウォークスルー映像、3DCGアニメーション、モーショングラフィックスの映像制作スタジオ。設計段階の空間をフォトリアルに可視化します。",
     images:      ["/og-image.jpg"],
   },
@@ -103,7 +103,7 @@ export const viewport: Viewport = {
 const jsonLdOrganization = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "LUMIERE STUDIO",
+  name: "S.SATOU",
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   email: "hello@lumiere.studio",
@@ -123,7 +123,7 @@ const jsonLdOrganization = {
 const jsonLdLocalBusiness = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "LUMIERE STUDIO",
+  name: "S.SATOU",
   image: `${SITE_URL}/og-image.jpg`,
   url: SITE_URL,
   email: "hello@lumiere.studio",
@@ -153,21 +153,21 @@ const jsonLdServices = {
       position: 1,
       name: "建築ビジュアライゼーション",
       description: "建築パース・ウォークスルー映像。設計段階の空間をフォトリアルに可視化します。",
-      provider: { "@type": "Organization", name: "LUMIERE STUDIO" },
+      provider: { "@type": "Organization", name: "S.SATOU" },
     },
     {
       "@type": "Service",
       position: 2,
       name: "アニメーション映像制作",
       description: "モーショングラフィックス・3DCGアニメーション。ブランドの世界観を映像で表現します。",
-      provider: { "@type": "Organization", name: "LUMIERE STUDIO" },
+      provider: { "@type": "Organization", name: "S.SATOU" },
     },
     {
       "@type": "Service",
       position: 3,
       name: "映像コンサルティング",
       description: "映像戦略の立案から制作ディレクションまで、クライアントのビジョンを実現するためのコンサルティング。",
-      provider: { "@type": "Organization", name: "LUMIERE STUDIO" },
+      provider: { "@type": "Organization", name: "S.SATOU" },
     },
   ],
 };

@@ -44,7 +44,7 @@ const SECTIONS = [
   },
   {
     title: "10. お問い合わせ窓口",
-    body: "LUMIERE STUDIO\nメール: hello@lumiere.studio\n所在地: 〒150-0001 東京都渋谷区神宮前3-1-1（※仮住所）\n受付時間: 平日 10:00〜19:00",
+    body: "S.SATOU\nメール: hello@lumiere.studio\n所在地: 〒150-0001 東京都渋谷区神宮前3-1-1（※仮住所）\n受付時間: 平日 10:00〜19:00",
   },
 ];
 
@@ -67,7 +67,7 @@ export default function PrivacyPage() {
         </p>
 
         <p className="text-body text-text-secondary mb-16">
-          LUMIERE STUDIO（以下「当社」）は、お客様の個人情報を適切に保護することが社会的責務であると考え、以下のプライバシーポリシーを定めます。
+          S.SATOU（以下「当社」）は、お客様の個人情報を適切に保護することが社会的責務であると考え、以下のプライバシーポリシーを定めます。
         </p>
 
         <div className="space-y-12">

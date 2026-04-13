@@ -122,7 +122,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             color: "#f0ede6",
           }}
         >
-          LUMIERE
+          S.SATOU
         </div>
       </div>
     </div>

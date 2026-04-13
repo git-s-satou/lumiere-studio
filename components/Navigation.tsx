@@ -95,9 +95,9 @@ export default function Navigation() {
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
             className="font-display text-text-primary text-sm md:text-base font-bold tracking-tight"
-            aria-label="LUMIERE STUDIO - トップに戻る"
+            aria-label="S.SATOU - トップに戻る"
           >
-            LUMIERE STUDIO
+            S.SATOU
           </a>
 
           {/* Desktop Nav */}

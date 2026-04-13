@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 const ROWS = [
-  { label: "販売業者", value: "LUMIERE STUDIO（ルミエールスタジオ）" },
+  { label: "販売業者", value: "S.SATOU" },
   { label: "代表責任者", value: "（代表者名を記載）" },
   {
     label: "所在地",

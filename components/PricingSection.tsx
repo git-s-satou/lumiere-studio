@@ -145,7 +145,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-8">
           {PLANS.map((plan, i) => {
             const isLoading = loadingPlan === plan.name;
 
@@ -156,7 +156,7 @@ export default function PricingSection() {
                   cardsRef.current[i] = el;
                 }}
                 style={{ opacity: 0 }}
-                className={`relative p-8 md:p-10 bg-bg-secondary rounded-card transition-colors duration-400 group
+                className={`relative p-6 md:p-8 xl:p-10 bg-bg-secondary rounded-card transition-colors duration-400 group overflow-hidden
                   ${
                     plan.recommended
                       ? "border border-accent"
@@ -177,7 +177,7 @@ export default function PricingSection() {
                   <span className="label-mono block mb-3">
                     {plan.number}. {plan.name}
                   </span>
-                  <div className="font-display text-2xl md:text-3xl text-text-primary mb-3">
+                  <div className="font-display text-xl sm:text-2xl xl:text-3xl text-text-primary mb-3 whitespace-nowrap">
                     {plan.price}
                   </div>
                   <p className="text-sm text-text-secondary leading-relaxed">

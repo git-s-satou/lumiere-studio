@@ -116,7 +116,7 @@ export default function Footer() {
         {/* Bottom row: Copyright + Back to top */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 pt-8 border-t border-border">
           <p className="font-mono text-xs text-text-secondary">
-            LUMIERE STUDIO &copy;{new Date().getFullYear()}
+            S.SATOU &copy;{new Date().getFullYear()}
           </p>
 
           <button

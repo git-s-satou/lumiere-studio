@@ -74,7 +74,7 @@ export default function AboutSection() {
         {/* Small logo mark */}
         <div ref={setRef(0)} style={{ opacity: 0 }} className="mb-16 md:mb-24">
           <span className="font-display text-lg text-text-primary/20 font-bold">
-            LUMIERE
+            S.SATOU
           </span>
         </div>
 
