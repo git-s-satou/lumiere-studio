@@ -117,10 +117,10 @@ export default function Navigation() {
               </a>
             ))}
             <a
-              href="mailto:hello@lumiere.studio"
+              href="mailto:s.s.s.2t18@gmail.com"
               className="font-mono text-xs text-text-secondary hover:text-accent transition-colors duration-400"
             >
-              hello@lumiere.studio
+              s.s.s.2t18@gmail.com
             </a>
           </nav>
 
@@ -165,10 +165,10 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="mailto:hello@lumiere.studio"
+            href="mailto:s.s.s.2t18@gmail.com"
             className="font-mono text-sm text-text-secondary hover:text-accent transition-colors duration-400 mt-4"
           >
-            hello@lumiere.studio
+            s.s.s.2t18@gmail.com
           </a>
         </div>
       </div>

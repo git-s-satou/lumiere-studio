@@ -94,10 +94,10 @@ export default function ContactSection() {
         {/* Email */}
         <div ref={emailRef} className="mb-16 md:mb-24" style={{ opacity: 0 }}>
           <a
-            href="mailto:hello@lumiere.studio"
+            href="mailto:s.s.s.2t18@gmail.com"
             className="font-display text-xl md:text-3xl text-text-primary hover:text-accent transition-colors duration-400"
           >
-            hello@lumiere.studio
+            s.s.s.2t18@gmail.com
           </a>
         </div>
 

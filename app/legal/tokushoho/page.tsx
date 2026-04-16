@@ -13,7 +13,7 @@ const ROWS = [
     value: "〒150-0001 東京都渋谷区神宮前3-1-1（※仮住所）",
   },
   { label: "電話番号", value: "03-XXXX-XXXX（受付: 平日10:00〜19:00）" },
-  { label: "メールアドレス", value: "hello@lumiere.studio" },
+  { label: "メールアドレス", value: "s.s.s.2t18@gmail.com" },
   {
     label: "販売価格",
     value:
