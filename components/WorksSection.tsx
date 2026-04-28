@@ -54,6 +54,14 @@ const WORKS: Work[] = [
   {
     id: "w4",
     type: "web",
+    url: "https://aura-website-eta.vercel.app/",
+    title: "AURA Series X",
+    category: "WEB DESIGN",
+    description: "架空のスマートフォンブランド「AURA」のプロモーションサイト。ミニマルなデザインと日英バイリンガル対応。",
+  },
+  {
+    id: "w5",
+    type: "web",
     url: "https://furniture-configurator-kappa.vercel.app/",
     title: "Furniture Configurator",
     category: "WEB APPLICATION",
