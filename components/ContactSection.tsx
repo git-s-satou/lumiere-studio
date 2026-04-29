@@ -8,11 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 
 const INQUIRY_TYPES = [
   { value: "", label: "相談内容を選択してください" },
-  { value: "architectural-viz", label: "建築ビジュアライゼーション" },
-  { value: "motion-graphics", label: "モーショングラフィックス" },
+  { value: "web-development", label: "Webサイト・LP制作" },
+  { value: "interactive-web", label: "インタラクティブWeb / 3D Webアプリ" },
   { value: "3dcg", label: "3DCGアニメーション" },
-  { value: "promotional", label: "プロモーション映像" },
-  { value: "walkthrough", label: "ウォークスルー映像" },
+  { value: "motion-graphics", label: "モーショングラフィックス" },
+  { value: "configurator", label: "3Dコンフィギュレーター開発" },
+  { value: "consultation", label: "無料相談（30分）を希望" },
   { value: "other", label: "その他" },
 ];
 
@@ -89,15 +90,45 @@ export default function ContactSection() {
           >
             Get in Touch
           </h2>
+          <p className="text-body text-text-secondary max-w-2xl leading-relaxed">
+            プロジェクトのご相談、お見積り依頼、まずはお気軽にお問い合わせください。
+            <br />
+            <span className="text-accent">初回30分の無料オンライン相談</span>を承っております。
+          </p>
         </div>
 
-        {/* Email */}
-        <div ref={emailRef} className="mb-16 md:mb-24" style={{ opacity: 0 }}>
+        {/* Quick contact options */}
+        <div ref={emailRef} className="mb-16 md:mb-24 grid grid-cols-1 md:grid-cols-2 gap-6" style={{ opacity: 0 }}>
+          {/* Email card */}
           <a
-            href="mailto:s.s.s.2t18@gmail.com"
-            className="font-display text-xl md:text-3xl text-text-primary hover:text-accent transition-colors duration-400"
+            href="mailto:s.s.s.2t18@gmail.com?subject=【お問い合わせ】S.SATOUポートフォリオより"
+            className="group p-6 md:p-8 bg-bg-secondary rounded-card border border-border hover:border-accent transition-colors duration-400"
           >
-            s.s.s.2t18@gmail.com
+            <span className="label-mono block mb-3 text-text-secondary group-hover:text-accent transition-colors duration-400">
+              Email
+            </span>
+            <span className="font-display text-base md:text-lg text-text-primary block mb-2 break-all">
+              s.s.s.2t18@gmail.com
+            </span>
+            <span className="font-mono text-xs text-text-secondary">
+              24時間以内にご返信 →
+            </span>
+          </a>
+
+          {/* Free consultation card */}
+          <a
+            href="mailto:s.s.s.2t18@gmail.com?subject=【無料相談希望】30分オンライン相談&body=以下の内容でご相談を希望します。%0A%0A・ご希望日時の候補:%0A・プロジェクト概要:%0A・ご予算（任意）:"
+            className="group p-6 md:p-8 bg-accent text-bg-primary rounded-card hover:bg-accent-hover transition-colors duration-400"
+          >
+            <span className="label-mono block mb-3 opacity-70">
+              Free Consultation
+            </span>
+            <span className="font-display text-base md:text-lg block mb-2">
+              30分の無料オンライン相談
+            </span>
+            <span className="font-mono text-xs opacity-80">
+              気軽にご相談ください →
+            </span>
           </a>
         </div>
 

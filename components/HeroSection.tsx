@@ -89,6 +89,11 @@ export default function HeroSection({ isLoaded }: HeroSectionProps) {
     if (next) next.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleContactClick = () => {
+    const contact = document.querySelector("#contact");
+    if (contact) contact.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section
       ref={sectionRef}
@@ -160,11 +165,51 @@ export default function HeroSection({ isLoaded }: HeroSectionProps) {
 
         <p
           ref={subTextRef}
-          className="font-mono text-sm md:text-base tracking-wider max-w-2xl mx-auto"
+          className="font-mono text-sm md:text-base tracking-wider max-w-2xl mx-auto mb-10"
           style={{ opacity: 0, color: "rgba(240,237,230,0.85)" }}
         >
           3DCG, Web Development &amp; Motion Graphics — from concept to delivery.
         </p>
+
+        {/* CTAボタン群 */}
+        <div
+          className="flex flex-col sm:flex-row gap-4 items-center justify-center"
+        >
+          <button
+            onClick={handleContactClick}
+            className="font-mono text-xs uppercase tracking-widest px-8 py-3.5 transition-all duration-400"
+            style={{
+              backgroundColor: "#c8a45c",
+              color: "#0a0a0a",
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#d4b46e")}
+            onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#c8a45c")}
+          >
+            無料相談 30分 →
+          </button>
+          <a
+            href="#works"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#works")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="font-mono text-xs uppercase tracking-widest px-8 py-3.5 border transition-all duration-400"
+            style={{
+              borderColor: "rgba(240,237,230,0.4)",
+              color: "rgba(240,237,230,0.9)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = "#c8a45c";
+              e.currentTarget.style.color = "#c8a45c";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = "rgba(240,237,230,0.4)";
+              e.currentTarget.style.color = "rgba(240,237,230,0.9)";
+            }}
+          >
+            実績を見る
+          </a>
+        </div>
       </div>
 
       {/* ── Explore インジケーター ── */}
