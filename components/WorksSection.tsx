@@ -67,6 +67,14 @@ const WORKS: Work[] = [
     category: "WEB APPLICATION",
     description: "3Dで家具をカスタマイズできるインタラクティブなWebアプリケーション。",
   },
+  {
+    id: "w6",
+    type: "web",
+    url: "https://arch-walkthrough.vercel.app/",
+    title: "Architectural Walkthrough",
+    category: "3D WEB EXPERIENCE",
+    description: "ブラウザ上で建築空間を自由に歩き回れるインタラクティブなウォークスルーデモ。",
+  },
 ];
 
 export default function WorksSection() {
