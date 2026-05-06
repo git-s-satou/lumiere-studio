@@ -28,6 +28,14 @@ type Work = VideoWork | WebWork;
 
 const WORKS: Work[] = [
   {
+    id: "w0",
+    type: "web",
+    url: "https://loft-portfolio.vercel.app/",
+    title: "Architectural Walkthrough",
+    category: "3D WEB EXPERIENCE",
+    description: "ブラウザ上で建築空間を自由に歩き回れるインタラクティブなウォークスルーデモ。",
+  },
+  {
     id: "w1",
     type: "video",
     videoId: "0YZwdNcOdRE",
@@ -66,22 +74,6 @@ const WORKS: Work[] = [
     title: "Furniture Configurator",
     category: "WEB APPLICATION",
     description: "3Dで家具をカスタマイズできるインタラクティブなWebアプリケーション。",
-  },
-  {
-    id: "w6",
-    type: "web",
-    url: "https://arch-walkthrough.vercel.app/",
-    title: "Architectural Walkthrough",
-    category: "3D WEB EXPERIENCE",
-    description: "ブラウザ上で建築空間を自由に歩き回れるインタラクティブなウォークスルーデモ。",
-  },
-  {
-    id: "w7",
-    type: "web",
-    url: "https://loft-portfolio.vercel.app/",
-    title: "Modern Loft Portfolio",
-    category: "ARCHITECTURE / INTERIOR",
-    description: "建築・インテリアデザインの作品を紹介するモダンなポートフォリオサイト。",
   },
 ];
 
