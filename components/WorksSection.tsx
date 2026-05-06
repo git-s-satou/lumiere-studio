@@ -75,6 +75,14 @@ const WORKS: Work[] = [
     category: "3D WEB EXPERIENCE",
     description: "ブラウザ上で建築空間を自由に歩き回れるインタラクティブなウォークスルーデモ。",
   },
+  {
+    id: "w7",
+    type: "web",
+    url: "https://loft-portfolio.vercel.app/",
+    title: "Modern Loft Portfolio",
+    category: "ARCHITECTURE / INTERIOR",
+    description: "建築・インテリアデザインの作品を紹介するモダンなポートフォリオサイト。",
+  },
 ];
 
 export default function WorksSection() {
