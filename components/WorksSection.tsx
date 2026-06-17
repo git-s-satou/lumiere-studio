@@ -44,6 +44,14 @@ const WORKS: Work[] = [
     description: "建築空間・プロダクトを3DCGで立体的に表現するアニメーション映像。",
   },
   {
+    id: "w1b",
+    type: "video",
+    videoId: "kPsgrPOvyy0",
+    title: "Car Animation",
+    category: "3DCG ANIMATION",
+    description: "自動車を主役にした3DCGアニメーション。質感とライティングにこだわった映像表現。",
+  },
+  {
     id: "w2",
     type: "video",
     videoId: "9Q59u4lflGU",
