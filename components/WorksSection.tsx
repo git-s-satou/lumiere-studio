@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -93,10 +93,122 @@ const WORKS: Work[] = [
   },
 ];
 
+const youtubeThumb = (videoId: string) =>
+  `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+
+const youtubeThumbFallback = (videoId: string) =>
+  `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+function WorkCard({ work }: { work: Work }) {
+  const [active, setActive] = useState(false);
+
+  return (
+    <div className="group">
+      <div className="relative w-full overflow-hidden rounded-card bg-bg-secondary">
+        {/* 16:9 アスペクト比コンテナ */}
+        <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+          {active ? (
+            work.type === "video" ? (
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${work.videoId}?rel=0&modestbranding=1&color=white&autoplay=1`}
+                title={work.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full border-0"
+              />
+            ) : (
+              <iframe
+                src={work.url}
+                title={work.title}
+                className="absolute inset-0 w-full h-full border-0"
+                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+              />
+            )
+          ) : (
+            /* サムネイル（クリックで iframe をロード） */
+            <button
+              type="button"
+              onClick={() => setActive(true)}
+              aria-label={`${work.title} を再生`}
+              className="absolute inset-0 w-full h-full cursor-pointer"
+            >
+              {work.type === "video" ? (
+                <img
+                  src={youtubeThumb(work.videoId)}
+                  alt={work.title}
+                  loading="lazy"
+                  onLoad={(e) => {
+                    // maxresdefault が無い動画は 120px のグレー画像が返るため hqdefault に差し替え
+                    const img = e.currentTarget;
+                    if (img.naturalWidth <= 120) {
+                      img.src = youtubeThumbFallback(work.videoId);
+                    }
+                  }}
+                  onError={(e) => {
+                    e.currentTarget.src = youtubeThumbFallback(work.videoId);
+                  }}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              ) : (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-bg-secondary to-bg-primary transition-transform duration-700 group-hover:scale-105">
+                  <span className="label-mono text-accent mb-2">{work.category}</span>
+                  <span className="font-display text-lg text-text-primary px-4 text-center">
+                    {work.title}
+                  </span>
+                </div>
+              )}
+
+              {/* オーバーレイ + 再生アイコン */}
+              <div className="absolute inset-0 bg-bg-primary/20 group-hover:bg-bg-primary/10 transition-colors duration-400" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="flex items-center justify-center w-14 h-14 rounded-full bg-bg-primary/70 backdrop-blur-sm text-text-primary group-hover:bg-accent group-hover:text-bg-primary transition-colors duration-400">
+                  {work.type === "video" ? (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  ) : (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                      <path d="M7 17 17 7M9 7h8v8" />
+                    </svg>
+                  )}
+                </span>
+              </div>
+            </button>
+          )}
+        </div>
+
+        {/* ホバー時のゴールドボーダー演出 */}
+        <div className="absolute inset-0 border border-transparent group-hover:border-accent/30 transition-colors duration-600 pointer-events-none rounded-card" />
+
+        {/* Webサイトの場合: 別タブで開くリンク（iframe 表示中のみ） */}
+        {work.type === "web" && active && (
+          <a
+            href={work.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute top-3 right-3 z-10 bg-bg-primary/80 backdrop-blur-sm text-text-primary text-xs font-mono px-3 py-1.5 rounded-full hover:bg-accent hover:text-bg-primary transition-colors duration-300"
+          >
+            Open Site &rarr;
+          </a>
+        )}
+      </div>
+
+      {/* プロジェクト情報 */}
+      <div className="mt-4">
+        <span className="label-mono block mb-1.5 text-accent">{work.category}</span>
+        <h3 className="font-display text-lg md:text-xl text-text-primary">{work.title}</h3>
+        <p className="mt-2 text-sm text-text-secondary leading-relaxed">
+          {work.description}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function WorksSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
-  const cardsRef   = useRef<(HTMLDivElement | null)[]>([]);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -112,7 +224,6 @@ export default function WorksSection() {
     }
 
     const ctx = gsap.context(() => {
-      // 見出し
       gsap.fromTo(
         headingRef.current,
         { opacity: 0, y: 30 },
@@ -126,17 +237,16 @@ export default function WorksSection() {
         }
       );
 
-      // 各カード
       cardsRef.current.forEach((card) => {
         if (!card) return;
         gsap.fromTo(
           card,
-          { opacity: 0, y: 60 },
+          { opacity: 0, y: 40 },
           {
-            opacity: 1, y: 0, duration: 1.2, ease: "power3.out",
+            opacity: 1, y: 0, duration: 1.0, ease: "power3.out",
             scrollTrigger: {
               trigger: card,
-              start: "top 85%",
+              start: "top 90%",
               toggleActions: "play none none reverse",
             },
           }
@@ -157,75 +267,22 @@ export default function WorksSection() {
       <div className="container-lumiere">
 
         {/* セクション見出し */}
-        <div ref={headingRef} className="mb-20 md:mb-32" style={{ opacity: 0 }}>
+        <div ref={headingRef} className="mb-16 md:mb-24" style={{ opacity: 0 }}>
           <span className="label-mono block mb-4">Portfolio</span>
           <h2 id="works-heading" className="font-display text-display-lg pb-2">
             Selected Works
           </h2>
         </div>
 
-        {/* 動画リスト */}
-        <div className="flex flex-col gap-24 md:gap-32">
+        {/* 作品グリッド */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 md:gap-y-16">
           {WORKS.map((work, i) => (
             <div
               key={work.id}
               ref={(el) => { cardsRef.current[i] = el; }}
               style={{ opacity: 0 }}
             >
-              {/* メディア表示エリア */}
-              <div className="relative w-full overflow-hidden rounded-card group">
-                {/* 16:9 アスペクト比コンテナ */}
-                <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-                  {work.type === "video" ? (
-                    <iframe
-                      src={`https://www.youtube-nocookie.com/embed/${work.videoId}?rel=0&modestbranding=1&color=white`}
-                      title={work.title}
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full border-0"
-                    />
-                  ) : (
-                    <iframe
-                      src={work.url}
-                      title={work.title}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full border-0"
-                      sandbox="allow-scripts allow-same-origin"
-                    />
-                  )}
-                </div>
-
-                {/* ホバー時のゴールドボーダー演出 */}
-                <div className="absolute inset-0 border border-transparent group-hover:border-accent/30 transition-colors duration-600 pointer-events-none rounded-card" />
-
-                {/* Webサイトの場合: 別タブで開くリンク */}
-                {work.type === "web" && (
-                  <a
-                    href={work.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-4 right-4 z-10 bg-bg-primary/80 backdrop-blur-sm text-text-primary text-xs font-mono px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-400 hover:bg-accent hover:text-bg-primary"
-                  >
-                    Open Site &rarr;
-                  </a>
-                )}
-              </div>
-
-              {/* プロジェクト情報 */}
-              <div className="mt-6 flex flex-col md:flex-row md:items-end md:justify-between gap-3">
-                <div>
-                  <span className="label-mono block mb-2 text-accent">
-                    {work.category}
-                  </span>
-                  <h3 className="font-display text-xl md:text-2xl text-text-primary">
-                    {work.title}
-                  </h3>
-                </div>
-                <p className="text-sm text-text-secondary max-w-xs text-left md:text-right leading-relaxed">
-                  {work.description}
-                </p>
-              </div>
+              <WorkCard work={work} />
             </div>
           ))}
         </div>
