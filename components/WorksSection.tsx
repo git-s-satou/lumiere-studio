@@ -36,6 +36,14 @@ const WORKS: Work[] = [
     description: "ブラウザ上で建築空間を自由に歩き回れるインタラクティブなウォークスルーデモ。",
   },
   {
+    id: "w0b",
+    type: "video",
+    videoId: "rNbv9olL058",
+    title: "3D Animation",
+    category: "3DCG ANIMATION",
+    description: "空間とプロダクトを3DCGで描いたアニメーション映像。",
+  },
+  {
     id: "w1",
     type: "video",
     videoId: "0YZwdNcOdRE",
