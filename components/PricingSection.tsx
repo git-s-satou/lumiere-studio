@@ -9,15 +9,15 @@ gsap.registerPlugin(ScrollTrigger);
 const PLANS = [
   {
     number: "01",
-    name: "LIGHT",
-    price: "¥150,000〜",
-    description: "LP制作 / モーショングラフィックス / 簡易3D",
+    name: "TEMPLATE",
+    price: "¥150,000",
+    description: "テンプレート型のLP・定型モーショングラフィックス",
     features: [
-      "1ページのランディングページ",
-      "簡易モーショングラフィックス",
-      "レスポンシブ対応",
-      "2回までの修正対応",
-      "納期: 2〜3週間",
+      "実績あるテンプレートをベースに制作",
+      "1ページのLP または 30秒以内の定型モーション",
+      "素材支給ベースで短納期",
+      "1回までの修正対応",
+      "納期: 1〜2週間",
     ],
     recommended: false,
     priceId: "price_light_placeholder",
@@ -34,17 +34,17 @@ const PLANS = [
       "5回までの修正対応",
       "納期: 1〜2ヶ月",
     ],
-    recommended: true,
+    recommended: false,
     priceId: "price_standard_placeholder",
   },
   {
     number: "03",
     name: "PREMIUM",
     price: "¥1,200,000〜",
-    description: "Webアプリ / 3Dコンフィギュレーター / 大規模映像",
+    description: "Webアプリ / 建築ウォークスルー / 大規模映像",
     features: [
       "インタラクティブWebアプリケーション",
-      "3Dコンフィギュレーター開発",
+      "ブラウザで歩ける建築ウォークスルー",
       "大規模3DCGアニメーション",
       "Stripe等の決済システム連携",
       "修正回数無制限",
@@ -52,6 +52,22 @@ const PLANS = [
     ],
     recommended: false,
     priceId: "price_premium_placeholder",
+  },
+  {
+    number: "04",
+    name: "CONFIGURATOR",
+    price: "¥1,800,000〜",
+    description: "3Dプロダクトコンフィギュレーター開発一式",
+    features: [
+      "製品の3Dモデル化（質感・カラーを忠実に再現）",
+      "カラー・素材・オプションのリアルタイム切替UI",
+      "ECサイト・既存サイトへの組み込み",
+      "見積もり・問い合わせフォーム連携",
+      "保守・商品追加の月額サポート（¥100,000〜/月）",
+      "納期: 2〜3ヶ月",
+    ],
+    recommended: true,
+    priceId: "price_configurator_placeholder",
   },
 ];
 
@@ -145,7 +161,7 @@ export default function PricingSection() {
         </div>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
           {PLANS.map((plan, i) => {
             const isLoading = loadingPlan === plan.name;
 
@@ -177,7 +193,7 @@ export default function PricingSection() {
                   <span className="label-mono block mb-3">
                     {plan.number}. {plan.name}
                   </span>
-                  <div className="font-display text-xl sm:text-2xl xl:text-3xl text-text-primary mb-3 whitespace-nowrap">
+                  <div className="font-display text-xl sm:text-2xl text-text-primary mb-3 whitespace-nowrap">
                     {plan.price}
                   </div>
                   <p className="text-sm text-text-secondary leading-relaxed">
@@ -249,6 +265,9 @@ export default function PricingSection() {
         {/* Note */}
         <p className="mt-10 text-center text-sm text-text-secondary">
           プロジェクト内容により変動します。まずはご相談ください。
+          <br />
+          納品後は<span className="text-text-primary">保守・更新の月額契約（¥100,000〜/月）</span>
+          で、商品追加・素材更新・キャンペーン対応を継続サポートします。
         </p>
       </div>
 

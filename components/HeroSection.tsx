@@ -160,7 +160,7 @@ export default function HeroSection({ isLoaded }: HeroSectionProps) {
           className="font-display text-display-xl mb-6"
           style={{ opacity: 0, color: "#f0ede6", lineHeight: 1.2 }}
         >
-          つくる力で、未来を形にする。
+          3Dも、Webも、映像も。ひとりで、最後まで。
         </h1>
 
         <p
@@ -168,7 +168,7 @@ export default function HeroSection({ isLoaded }: HeroSectionProps) {
           className="font-mono text-sm md:text-base tracking-wider max-w-2xl mx-auto mb-10"
           style={{ opacity: 0, color: "rgba(240,237,230,0.85)" }}
         >
-          3DCG, Web Development &amp; Motion Graphics — from concept to delivery.
+          3D configurators, architectural walkthroughs &amp; motion — designed, built and delivered by one creative developer.
         </p>
 
         {/* CTAボタン群 */}

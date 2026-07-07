@@ -6,6 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type SolutionLink = {
+  label: string;
+  href: string;
+};
+
 type VideoWork = {
   id: string;
   type: "video";
@@ -13,6 +18,8 @@ type VideoWork = {
   title: string;
   category: string;
   description: string;
+  solution?: SolutionLink;
+  caseStudyHref?: string;
 };
 
 type WebWork = {
@@ -22,6 +29,8 @@ type WebWork = {
   title: string;
   category: string;
   description: string;
+  solution?: SolutionLink;
+  caseStudyHref?: string;
 };
 
 type Work = VideoWork | WebWork;
@@ -34,6 +43,8 @@ const WORKS: Work[] = [
     title: "Architectural Walkthrough",
     category: "3D WEB EXPERIENCE",
     description: "ブラウザ上で建築空間を自由に歩き回れるインタラクティブなウォークスルーデモ。",
+    solution: { label: "住宅・不動産向け", href: "/for-housing" },
+    caseStudyHref: "/works/architectural-walkthrough",
   },
   {
     id: "w0b",
@@ -50,6 +61,7 @@ const WORKS: Work[] = [
     title: "3D Animation",
     category: "3DCG ANIMATION",
     description: "建築空間・プロダクトを3DCGで立体的に表現するアニメーション映像。",
+    solution: { label: "住宅・不動産向け", href: "/for-housing" },
   },
   {
     id: "w1b",
@@ -58,6 +70,7 @@ const WORKS: Work[] = [
     title: "Car Animation",
     category: "3DCG ANIMATION",
     description: "自動車を主役にした3DCGアニメーション。質感とライティングにこだわった映像表現。",
+    solution: { label: "自動車パーツ向け", href: "/for-automotive" },
   },
   {
     id: "w2",
@@ -90,6 +103,8 @@ const WORKS: Work[] = [
     title: "Furniture Configurator",
     category: "WEB APPLICATION",
     description: "3Dで家具をカスタマイズできるインタラクティブなWebアプリケーション。",
+    solution: { label: "家具メーカー向け", href: "/for-furniture" },
+    caseStudyHref: "/works/furniture-configurator",
   },
 ];
 
@@ -200,6 +215,26 @@ function WorkCard({ work }: { work: Work }) {
         <p className="mt-2 text-sm text-text-secondary leading-relaxed">
           {work.description}
         </p>
+        {(work.solution || work.caseStudyHref) && (
+          <div className="flex flex-wrap gap-2 mt-3">
+            {work.solution && (
+              <a
+                href={work.solution.href}
+                className="inline-flex items-center gap-2 font-mono text-xs text-text-secondary border border-border rounded-full px-3 py-1.5 hover:border-accent hover:text-accent transition-colors duration-400"
+              >
+                {work.solution.label}ソリューション →
+              </a>
+            )}
+            {work.caseStudyHref && (
+              <a
+                href={work.caseStudyHref}
+                className="inline-flex items-center gap-2 font-mono text-xs text-text-secondary border border-border rounded-full px-3 py-1.5 hover:border-accent hover:text-accent transition-colors duration-400"
+              >
+                ケーススタディ →
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -7,8 +7,10 @@ import HeroSection from "@/components/HeroSection";
 import ImpactText from "@/components/ImpactText";
 import AboutSection from "@/components/AboutSection";
 import WorksSection from "@/components/WorksSection";
+import { SolutionsSection } from "@/components/SolutionsSection";
 import PrinciplesSection from "@/components/PrinciplesSection";
 import PricingSection from "@/components/PricingSection";
+import { FAQSection } from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -24,8 +26,10 @@ export default function Home() {
         <ImpactText />
         <AboutSection />
         <WorksSection />
+        <SolutionsSection />
         <PrinciplesSection />
         <PricingSection />
+        <FAQSection />
         <ContactSection />
       </main>
       <Footer />

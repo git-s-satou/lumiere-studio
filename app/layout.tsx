@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_JP, Space_Mono } from "next/font/google";
 import LenisProvider from "@/providers/LenisProvider";
+import { FAQ_ITEMS } from "@/lib/faq";
 import "./globals.css";
 
 /* ─── Font loading (Next.js font optimization) ──────────────── */
@@ -41,6 +42,8 @@ export const metadata: Metadata = {
   keywords: [
     "クリエイティブデベロッパー",
     "フリーランス",
+    "3Dコンフィギュレーター",
+    "建築ウォークスルー",
     "3DCGアニメーション",
     "Web開発",
     "Next.js",
@@ -157,48 +160,11 @@ const jsonLdServices = {
 const jsonLdFaq = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: [
-    {
-      "@type": "Question",
-      name: "納期はどれくらいですか？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "プロジェクト規模により2週間〜3ヶ月。詳細はヒアリング時にお伝えします。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "修正回数に制限はありますか？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "基本プランでは2回まで。追加修正は別途ご相談ください。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "素材（CADデータ等）の提供は必要ですか？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "建築VIZの場合、CADや3Dデータをご提供いただけると精度が上がります。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "リモートでの打ち合わせは可能ですか？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "はい、Zoom/Google Meetでの打ち合わせに対応しています。",
-      },
-    },
-    {
-      "@type": "Question",
-      name: "支払い方法は？",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "クレジットカード（Stripe経由）または銀行振込に対応しています。",
-      },
-    },
-  ],
+  mainEntity: FAQ_ITEMS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
 };
 
 /* ─── Root Layout ───────────────────────────────────────────── */

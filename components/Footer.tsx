@@ -3,8 +3,16 @@
 const NAV_LINKS = [
   { label: "About", href: "#about" },
   { label: "Works", href: "#works" },
+  { label: "Solutions", href: "#solutions" },
   { label: "Services", href: "#principles" },
   { label: "Pricing", href: "#pricing" },
+];
+
+const SOLUTION_LINKS = [
+  { label: "家具メーカー向け", href: "/for-furniture" },
+  { label: "工務店・ハウスメーカー向け", href: "/for-housing" },
+  { label: "自動車パーツ向け", href: "/for-automotive" },
+  { label: "For Overseas Brands (EN)", href: "/en/for-furniture" },
 ];
 
 const LEGAL_LINKS = [
@@ -96,6 +104,23 @@ export default function Footer() {
             </ul>
           </nav>
         </div>
+
+        {/* Solutions links — page navigation */}
+        <nav aria-label="業界別ソリューション" className="mb-16">
+          <span className="label-mono block mb-4">Solutions</span>
+          <ul className="flex flex-wrap gap-x-6 gap-y-3 md:gap-x-8">
+            {SOLUTION_LINKS.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="font-mono text-xs text-text-secondary hover:text-accent transition-colors duration-400"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         {/* Social icons */}
         <div className="flex gap-6 mb-16">

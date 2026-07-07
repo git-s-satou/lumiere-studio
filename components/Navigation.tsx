@@ -5,6 +5,7 @@ import gsap from "gsap";
 
 const NAV_LINKS = [
   { label: "Works", href: "#works" },
+  { label: "Solutions", href: "#solutions" },
   { label: "Services", href: "#principles" },
   { label: "Pricing", href: "#pricing" },
   { label: "Contact", href: "#contact" },
