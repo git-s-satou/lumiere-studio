@@ -303,7 +303,11 @@ export function VerticalLanding({ data }: { data: VerticalData }) {
               <span className="label-mono block mb-4">Pricing</span>
               <div className="accent-line" />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl">
+            <div
+              className={`grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 ${
+                data.plans.length >= 3 ? "lg:grid-cols-3" : "max-w-4xl"
+              }`}
+            >
               {data.plans.map((plan) => (
                 <div
                   key={plan.name}
