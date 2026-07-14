@@ -33,7 +33,19 @@ type WebWork = {
   caseStudyHref?: string;
 };
 
-type Work = VideoWork | WebWork;
+type LocalVideoWork = {
+  id: string;
+  type: "localVideo";
+  src: string;
+  poster: string;
+  title: string;
+  category: string;
+  description: string;
+  solution?: SolutionLink;
+  caseStudyHref?: string;
+};
+
+type Work = VideoWork | WebWork | LocalVideoWork;
 
 const WORKS: Work[] = [
   {
@@ -45,6 +57,17 @@ const WORKS: Work[] = [
     description: "ブラウザ上で建築空間を自由に歩き回れるインタラクティブなウォークスルーデモ。",
     solution: { label: "住宅・不動産向け", href: "/for-housing" },
     caseStudyHref: "/works/architectural-walkthrough",
+  },
+  {
+    id: "w0a",
+    type: "localVideo",
+    src: "/works/arch-walk.mp4",
+    poster: "/works/arch-walk-poster.jpg",
+    title: "Real-Time Walkthrough (UE5)",
+    category: "UNREAL ENGINE / REAL-TIME",
+    description:
+      "Unreal Engine 5 でリアルタイムレンダリングした建築ウォークスルー。実写に迫る質感とライティングを、映像だけでなく Pixel Streaming でブラウザ操作型のインタラクティブ体験にも展開できます。",
+    solution: { label: "住宅・不動産向け", href: "/for-housing" },
   },
   {
     id: "w0b",
@@ -106,6 +129,16 @@ const WORKS: Work[] = [
     solution: { label: "家具メーカー向け", href: "/for-furniture" },
     caseStudyHref: "/works/furniture-configurator",
   },
+  {
+    id: "w6",
+    type: "web",
+    url: "https://room-table-demo.vercel.app/",
+    title: "Furniture Size Simulator",
+    category: "WEB APPLICATION / 3D",
+    description:
+      "サイズオーダー家具を1cm単位で操作し、寸法線と一緒に部屋での見え方を確認できる3Dシミュレーター。パラメトリック生成なので、どの製品・サイズ展開にも対応できます。",
+    solution: { label: "家具メーカー向け", href: "/for-furniture" },
+  },
 ];
 
 const youtubeThumb = (videoId: string) =>
@@ -130,6 +163,15 @@ function WorkCard({ work }: { work: Work }) {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
                 className="absolute inset-0 w-full h-full border-0"
+              />
+            ) : work.type === "localVideo" ? (
+              <video
+                src={work.src}
+                poster={work.poster}
+                controls
+                autoPlay
+                playsInline
+                className="absolute inset-0 w-full h-full border-0 object-cover bg-black"
               />
             ) : (
               <iframe
@@ -164,6 +206,13 @@ function WorkCard({ work }: { work: Work }) {
                   }}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
+              ) : work.type === "localVideo" ? (
+                <img
+                  src={work.poster}
+                  alt={work.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
               ) : (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-bg-secondary to-bg-primary transition-transform duration-700 group-hover:scale-105">
                   <span className="label-mono text-accent mb-2">{work.category}</span>
@@ -177,7 +226,7 @@ function WorkCard({ work }: { work: Work }) {
               <div className="absolute inset-0 bg-bg-primary/20 group-hover:bg-bg-primary/10 transition-colors duration-400" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="flex items-center justify-center w-14 h-14 rounded-full bg-bg-primary/70 backdrop-blur-sm text-text-primary group-hover:bg-accent group-hover:text-bg-primary transition-colors duration-400">
-                  {work.type === "video" ? (
+                  {work.type !== "web" ? (
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
                       <path d="M8 5v14l11-7z" />
                     </svg>
