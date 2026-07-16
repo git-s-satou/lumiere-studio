@@ -34,6 +34,14 @@ export type VerticalData = {
     playLabel: string;
     openLabel: string;
   };
+  /** 自己ホストの映像作例（任意）。あれば demo セクション直後に表示する */
+  videoShowcase?: {
+    label: string;
+    title: string;
+    caption: string;
+    src: string;
+    poster: string;
+  };
   benefits: { title: string; body: string }[];
   process: { title: string; body: string }[];
   plans: VerticalPlan[];
@@ -212,6 +220,14 @@ const housingJa: VerticalData = {
     embed: { kind: "site", url: "https://loft-portfolio.vercel.app/" },
     playLabel: "ウォークスルーを起動する",
     openLabel: "別タブで開く →",
+  },
+  videoShowcase: {
+    label: "UE5 Walkthrough",
+    title: "Unreal Engine 5で制作したウォークスルー映像",
+    caption:
+      "図面から起こした住宅空間を、Unreal Engine 5のリアルタイムレンダリングでウォークスルー撮影した実制作サンプルです。WALKTHROUGH MOVIEプランの仕上がりイメージとしてご覧ください。",
+    src: "/works/arch-walk.mp4",
+    poster: "/works/arch-walk-poster.jpg",
   },
   benefits: [
     {

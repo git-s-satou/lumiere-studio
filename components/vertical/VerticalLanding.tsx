@@ -97,6 +97,61 @@ export function DemoFrame({
   );
 }
 
+/* ─── 自己ホスト映像作例（クリックで再生） ───────────────────── */
+export function VideoShowcase({
+  src,
+  poster,
+  title,
+  playLabel,
+}: {
+  src: string;
+  poster: string;
+  title: string;
+  playLabel: string;
+}) {
+  const [active, setActive] = useState(false);
+
+  return (
+    <div className="relative w-full overflow-hidden rounded-card bg-bg-secondary border border-border">
+      <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+        {active ? (
+          <video
+            src={src}
+            poster={poster}
+            controls
+            autoPlay
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full bg-black"
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setActive(true)}
+            aria-label={playLabel}
+            className="absolute inset-0 w-full h-full cursor-pointer group"
+          >
+            <img
+              src={poster}
+              alt={title}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="flex items-center gap-3 bg-bg-primary/80 backdrop-blur-sm text-text-primary px-6 py-3 rounded-full group-hover:bg-accent group-hover:text-bg-primary transition-colors duration-400">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <span className="font-mono text-xs uppercase tracking-widest">{playLabel}</span>
+              </span>
+            </div>
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /* ─── 業種別LP本体 ──────────────────────────────────────────── */
 export function VerticalLanding({ data }: { data: VerticalData }) {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -247,6 +302,29 @@ export function VerticalLanding({ data }: { data: VerticalData }) {
             </div>
           </div>
         </section>
+
+        {/* ── 映像作例（自己ホスト・任意） ── */}
+        {data.videoShowcase && (
+          <section className="pb-20 md:pb-32" aria-label="Video sample">
+            <div className="container-lumiere">
+              <div data-reveal style={{ opacity: 0 }} className="mb-10 md:mb-14">
+                <span className="label-mono block mb-4">{data.videoShowcase.label}</span>
+                <h2 className="font-display text-display-lg pb-2">{data.videoShowcase.title}</h2>
+                <p className="text-sm text-text-secondary max-w-2xl mt-4 leading-relaxed">
+                  {data.videoShowcase.caption}
+                </p>
+              </div>
+              <div data-reveal style={{ opacity: 0 }}>
+                <VideoShowcase
+                  src={data.videoShowcase.src}
+                  poster={data.videoShowcase.poster}
+                  title={data.videoShowcase.title}
+                  playLabel={data.demo.playLabel}
+                />
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ── 提供価値 ── */}
         <section className="py-20 md:py-32 bg-bg-secondary" aria-label="What you get">
